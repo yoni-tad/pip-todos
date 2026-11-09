@@ -1,0 +1,95 @@
+{
+  "name": "pip-todos",
+  "displayName": "Pip Todos",
+  "description": "A tiny sidebar todo list for the small things you notice while you work.",
+  "version": "0.1.0",
+  "publisher": "yonitad",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "todo",
+    "tasks",
+    "checklist",
+    "sidebar",
+    "notes"
+  ],
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1F1F23",
+    "theme": "dark"
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pipTodos",
+          "title": "Pip Todos",
+          "icon": "media/activity.svg"
+        }
+      ]
+    },
+    "views": {
+      "pipTodos": [
+        {
+          "type": "webview",
+          "id": "pipTodos.sidebar",
+          "name": "Todos"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pipTodos.add",
+        "title": "Add Todo",
+        "category": "Pip Todos"
+      },
+      {
+        "command": "pipTodos.newList",
+        "title": "New List",
+        "category": "Pip Todos"
+      },
+      {
+        "command": "pipTodos.export",
+        "title": "Export All Lists",
+        "category": "Pip Todos"
+      },
+      {
+        "command": "pipTodos.import",
+        "title": "Import Lists",
+        "category": "Pip Todos"
+      },
+      {
+        "command": "pipTodos.focus",
+        "title": "Show Todos",
+        "category": "Pip Todos"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "pipTodos.add",
+        "key": "ctrl+alt+t",
+        "mac": "cmd+alt+t"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.js --production",
+    "watch": "node esbuild.js --watch",
+    "compile-tests": "tsc -p ./tsconfig.test.json",
+    "test": "npm run compile-tests && node --test \"out-test/test/*.test.js\"",
+    "lint": "tsc --noEmit -p ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.84.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.4.0"
+  }
+}

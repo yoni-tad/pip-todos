@@ -1,0 +1,16 @@
+# Build output
+out/
+out-test/
+dist/
+*.vsix
+
+# Dependencies
+node_modules/
+
+# Local design & prompt references (not for the public repo)
+claude/
+
+# Editor / OS noise
+.DS_Store
+*.log
+.vscode-test/

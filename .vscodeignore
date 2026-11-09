@@ -1,0 +1,19 @@
+# Keep the published .vsix small: ship only what the extension needs at runtime.
+.vscode/**
+.vscode-test/**
+src/**
+webview/**
+test/**
+out-test/**
+claude/**
+node_modules/**
+
+**/*.ts
+**/*.map
+**/tsconfig*.json
+esbuild.js
+.gitignore
+.editorconfig
+
+# Source art we render from, but do not ship
+media/icon-source.svg
