@@ -2,7 +2,7 @@
   "name": "pip-todos",
   "displayName": "Pip Todos",
   "description": "A tiny sidebar todo list for the small things you notice while you work.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "yonitad",
   "license": "MIT",
   "engines": {
@@ -91,5 +91,13 @@
     "@types/vscode": "^1.84.0",
     "esbuild": "^0.20.0",
     "typescript": "^5.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoni-tad/pip-todos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yoni-tad/pip-todos/issues"
+  },
+  "homepage": "https://github.com/yoni-tad/pip-todos#readme"
 }

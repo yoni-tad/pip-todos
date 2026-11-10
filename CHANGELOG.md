@@ -3,6 +3,13 @@
 All notable changes to Pip Todos are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] - 2026-11-10
+
+### Fixed
+
+- Sidebar showed unstyled in installed builds because the stylesheet was excluded
+  from the package. The CSS is now bundled into `out/` and ships with the extension.
+
 ## [0.1.0] - 2026-11-09
 
 ### Added

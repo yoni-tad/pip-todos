@@ -33,16 +33,31 @@ const webviewConfig = {
   logLevel: "info",
 };
 
+// The stylesheet is bundled into out/ so it ships inside the .vsix and is served
+// from the same folder as the scripts.
+/** @type {import('esbuild').BuildOptions} */
+const cssConfig = {
+  entryPoints: ["webview/style.css"],
+  bundle: true,
+  outfile: "out/style.css",
+  minify: production,
+  logLevel: "info",
+};
+
 async function main() {
   if (watch) {
-    const ctxExt = await esbuild.context(extensionConfig);
-    const ctxWeb = await esbuild.context(webviewConfig);
-    await Promise.all([ctxExt.watch(), ctxWeb.watch()]);
+    const contexts = await Promise.all([
+      esbuild.context(extensionConfig),
+      esbuild.context(webviewConfig),
+      esbuild.context(cssConfig),
+    ]);
+    await Promise.all(contexts.map((c) => c.watch()));
     console.log("[esbuild] watching...");
   } else {
     await Promise.all([
       esbuild.build(extensionConfig),
       esbuild.build(webviewConfig),
+      esbuild.build(cssConfig),
     ]);
   }
 }

@@ -53,7 +53,10 @@ export class SidebarViewProvider implements vscode.WebviewViewProvider {
     this.view = webviewView;
     webviewView.webview.options = {
       enableScripts: true,
-      localResourceRoots: [vscode.Uri.joinPath(this.extensionUri, "out"), vscode.Uri.joinPath(this.extensionUri, "media"), vscode.Uri.joinPath(this.extensionUri, "webview")],
+      localResourceRoots: [
+        vscode.Uri.joinPath(this.extensionUri, "out"),
+        vscode.Uri.joinPath(this.extensionUri, "media"),
+      ],
     };
     webviewView.webview.html = this.getHtml(webviewView.webview);
 
@@ -183,7 +186,7 @@ export class SidebarViewProvider implements vscode.WebviewViewProvider {
       vscode.Uri.joinPath(this.extensionUri, "out", "webview.js")
     );
     const styleUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this.extensionUri, "webview", "style.css")
+      vscode.Uri.joinPath(this.extensionUri, "out", "style.css")
     );
     const pipUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this.extensionUri, "media", "pip.svg")
